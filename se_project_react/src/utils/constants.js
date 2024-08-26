@@ -5,7 +5,7 @@
 //String - https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${APIkey}
 //Key -
 
-const defaultClothingItems = [
+export const defaultClothingItems = [
   {
     _id: 0,
     name: "Cap",
