@@ -8,15 +8,29 @@ import Footer from "../Footer/Footer";
 
 function App() {
   const [weatherData, setWeatherData] = useState({ type: "cold" });
+  const [activeModal, setActiveModal] = useState("");
+
+  const handleAddClick = () => {
+    setActiveModal("activeModal");
+  };
+
+  const closeActiveModal = () => {
+    setActiveModal("");
+  };
 
   return (
     <div className="page">
       <div className="page__content">
-        <Header />
+        <Header handleAddClick={handleAddClick} />
         <Main weatherData={weatherData} />
         <Footer />
       </div>
-      <ModalWithForm title="New Garment" buttonText="Add garment">
+      <ModalWithForm
+        title="New Garment"
+        buttonText="Add garment"
+        activeModal={activeModal}
+        handleCloseClick={closeActiveModal}
+      >
         <label htmlFor="name" className="modal__label">
           Name{" "}
         </label>
