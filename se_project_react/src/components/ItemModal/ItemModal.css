@@ -1,0 +1,34 @@
+.modal__content_type_image {
+  max-width: 498px;
+  position: relative;
+  padding: 0;
+  background-color: #fff;
+  border-radius: 16px;
+}
+
+.modal__image {
+  width: 100%;
+  border-radius: 16px 16px 0 0;
+}
+
+.modal__footer {
+  font-family: "CabinetGrotesk-Bold";
+  line-height: 24px;
+}
+
+.modal__caption {
+  margin: 0;
+  padding-top: 20px;
+  padding-left: 32px;
+  padding-bottom: 12px;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.modal__weather {
+  margin: 0;
+  padding-left: 32px;
+  padding-bottom: 32px;
+  font-weight: 700;
+  font-size: 20px;
+}
