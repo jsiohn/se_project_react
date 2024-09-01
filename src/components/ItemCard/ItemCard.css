@@ -5,6 +5,10 @@
   justify-content: center;
 }
 
+.card:hover {
+  cursor: pointer;
+}
+
 .card__name {
   position: absolute;
   top: 15px;
