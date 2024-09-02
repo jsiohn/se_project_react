@@ -1,8 +1,18 @@
-# React + Vite
+# What to Wear?
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is the first foray into React, using seperate components and combining them to form a cohesive web app. As of now, the location for the app is set at a certain latitude and longitude (my hometown), but will allow the user to set a location in the future. The app will make some suggestions on what the user should wear given the current weather conditions at their location, and after future work, will allow the addition of more garments with custom cards/images and like/dislike functionality.
 
-Currently, two official plugins are available:
+## Technologies Used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- HTML, CSS, Javascript, and React
+- Figma (for design and styling requirements)
+- BEM file structure and class-naming
+- GitHub Pages for deployment
+
+### Links
+
+Follow this link to see the project in action on GH Pages: [What to Wear?](https://jsiohn.github.io/se_project_react)
+
+**Thanks to TripleTen!**
+
+By John Siordia
