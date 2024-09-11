@@ -1,7 +1,12 @@
 .header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 32px 0 28px;
+}
+
+.header__logo-datelocation-container {
+  display: flex;
 }
 
 .header__logo {

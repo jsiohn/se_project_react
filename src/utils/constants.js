@@ -88,31 +88,31 @@ export const weatherOptions = [
   {
     day: false,
     condition: "clear",
-    url: new URL("../assets/day/clearNight.png", import.meta.url).href,
+    url: new URL("../assets/night/clearNight.png", import.meta.url).href,
   },
   {
     day: false,
     condition: "cloudy",
-    url: new URL("../assets/day/cloudyNight.png", import.meta.url).href,
+    url: new URL("../assets/night/cloudyNight.png", import.meta.url).href,
   },
   {
     day: false,
     condition: "rainy",
-    url: new URL("../assets/day/rainyNight.png", import.meta.url).href,
+    url: new URL("../assets/night/rainyNight.png", import.meta.url).href,
   },
   {
     day: false,
     condition: "stormy",
-    url: new URL("../assets/day/stormyNight.png", import.meta.url).href,
+    url: new URL("../assets/night/stormyNight.png", import.meta.url).href,
   },
   {
     day: false,
     condition: "snowy",
-    url: new URL("../assets/day/snowyNight.png", import.meta.url).href,
+    url: new URL("../assets/night/snowyNight.png", import.meta.url).href,
   },
   {
     day: false,
     condition: "foggy",
-    url: new URL("../assets/day/foggyNight.png", import.meta.url).href,
+    url: new URL("../assets/night/foggyNight.png", import.meta.url).href,
   },
 ];
