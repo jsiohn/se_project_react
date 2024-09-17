@@ -1,0 +1,7 @@
+.clothes-section {
+  justify-self: flex-end;
+}
+
+.clothes-section__texts {
+  display: flex;
+}
