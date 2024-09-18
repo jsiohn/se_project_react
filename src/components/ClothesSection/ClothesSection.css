@@ -2,6 +2,15 @@
   justify-self: flex-end;
 }
 
+.clothes-section__items {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  gap: 21px;
+}
+
 .clothes-section__texts {
   display: flex;
 }
