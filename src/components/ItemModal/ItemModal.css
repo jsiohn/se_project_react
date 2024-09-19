@@ -14,6 +14,7 @@
 .modal__footer {
   font-family: "CabinetGrotesk-Bold";
   line-height: 24px;
+  display: grid;
 }
 
 .modal__caption {
@@ -31,4 +32,17 @@
   padding-bottom: 32px;
   font-weight: 700;
   font-size: 20px;
+}
+
+.modal__del-btn {
+  position: relative;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  color: #ff4d00;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  grid-column: 2/3;
+  grid-row: 1;
 }

@@ -11,6 +11,28 @@
   gap: 21px;
 }
 
-.clothes-section__texts {
+.clothes-section__text-container {
   display: flex;
+  gap: 20px;
+  margin-top: 63px;
+  margin-bottom: 16px;
+}
+
+.clothes-section__title {
+  margin: 0;
+  font-family: "CabinetGrotesk-Bold";
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 25px;
+}
+
+.clothes-section__add-btn {
+  padding: 0;
+  font-family: "CabinetGrotesk-Bold";
+  font-size: 20px;
+  line-height: 24px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  opacity: 0.6;
 }

@@ -3,7 +3,7 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 const AddItemModal = ({ closeActiveModal, onAddItem, isOpen }) => {
   const [name, setName] = useState("");
-  const [url, setUrl] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
   const [weather, setWeather] = useState("");
 
   const handleNameChange = (e) => {
@@ -13,7 +13,7 @@ const AddItemModal = ({ closeActiveModal, onAddItem, isOpen }) => {
 
   const handleUrlChange = (e) => {
     console.log(e.target.value);
-    setUrl(e.target.value);
+    setImageUrl(e.target.value);
   };
 
   const handleWeatherChange = (e) => {
@@ -23,7 +23,7 @@ const AddItemModal = ({ closeActiveModal, onAddItem, isOpen }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddItem({ name, url, weather });
+    onAddItem({ name, imageUrl, weather });
   };
 
   return (
@@ -53,7 +53,7 @@ const AddItemModal = ({ closeActiveModal, onAddItem, isOpen }) => {
         className="modal__input"
         id="imageUrl"
         placeholder="Image URL"
-        value={url}
+        value={imageUrl}
         onChange={handleUrlChange}
       />
       <fieldset className="modal__radio-buttons">

@@ -10,7 +10,7 @@ import Profile from "../Profile/Profile";
 import { getWeather, filterWeatherData } from "../../utils/weatherAPI";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import AddItemModal from "../AddItemModal/AddItemModal";
-import { getItems } from "../../utils/api";
+import { getItems, addItem, deleteItem } from "../../utils/api";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -44,6 +44,20 @@ function App() {
 
   const onAddItem = (values) => {
     console.log(values);
+    addItem(values)
+      .then((newItem) => {
+        setClothingItems([newItem, ...clothingItems]);
+        closeActiveModal();
+      })
+      .catch(console.error);
+  };
+
+  const onDeleteItem = (id) => {
+    deleteItem(id)
+      .then(() => {
+        setClothingItems((items) => items.filter((item) => item._id !== id));
+      })
+      .catch(console.error);
   };
 
   useEffect(() => {
@@ -107,6 +121,7 @@ function App() {
             activeModal={activeModal}
             card={selectedCard}
             onClose={closeActiveModal}
+            onDeleteItem={onDeleteItem}
           />
         )}
       </CurrentTemperatureUnitContext.Provider>

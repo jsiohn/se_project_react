@@ -10,7 +10,7 @@ function getItems() {
   }).then(checkResponse);
 }
 
-function addItem() {
+function addItem({ name, imageUrl, weather }) {
   return fetch(`${baseUrl}/items`, {
     method: "POST",
     headers: "Content-type: application/json",
@@ -22,8 +22,8 @@ function addItem() {
   }).then(checkResponse);
 }
 
-function deleteItem() {
-  return fetch(`${baseUrl}/items`, {
+function deleteItem(id) {
+  return fetch(`${baseUrl}/items/${id}`, {
     method: "DELETE",
   }).then(checkResponse);
 }
