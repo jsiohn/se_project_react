@@ -13,7 +13,7 @@ function getItems() {
 function addItem({ name, imageUrl, weather }) {
   return fetch(`${baseUrl}/items`, {
     method: "POST",
-    headers: "Content-type: application/json",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       name: name,
       imageUrl: imageUrl,
@@ -25,6 +25,7 @@ function addItem({ name, imageUrl, weather }) {
 function deleteItem(id) {
   return fetch(`${baseUrl}/items/${id}`, {
     method: "DELETE",
+    headers: { "Content-Type": "application/json" },
   }).then(checkResponse);
 }
 

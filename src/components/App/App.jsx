@@ -43,7 +43,6 @@ function App() {
   };
 
   const onAddItem = (values) => {
-    console.log(values);
     addItem(values)
       .then((newItem) => {
         setClothingItems([newItem, ...clothingItems]);
@@ -52,10 +51,13 @@ function App() {
       .catch(console.error);
   };
 
-  const onDeleteItem = (id) => {
-    deleteItem(id)
+  const onDeleteItem = () => {
+    deleteItem(selectedCard._id)
       .then(() => {
-        setClothingItems((items) => items.filter((item) => item._id !== id));
+        setClothingItems((items) =>
+          items.filter((item) => item._id !== selectedCard._id)
+        );
+        closeActiveModal();
       })
       .catch(console.error);
   };
