@@ -12,7 +12,7 @@ import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperature
 import AddItemModal from "../AddItemModal/AddItemModal";
 import { getItems, addItem, deleteItem } from "../../utils/api";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
-import * as auth from "../utils/auth";
+import * as auth from "../../utils/auth";
 import { setToken, getToken } from "../../utils/token";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 
