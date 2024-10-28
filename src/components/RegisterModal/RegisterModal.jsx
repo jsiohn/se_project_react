@@ -1,32 +1,54 @@
 import { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const RegisterModal = ({ handleRegistration, closeActiveModal, isOpen }) => {
-  const [data, setData] = useState({
-    email: "",
-    password: "",
-    name: "",
-    avatarUrl: "",
-  });
+const RegisterModal = ({ handleRegistration, onClose, isOpen }) => {
+  // const [data, setData] = useState({
+  //   email: "",
+  //   password: "",
+  //   name: "",
+  //   avatarUrl: "",
+  // });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setData((prevData) => ({
+  //     ...prevData,
+  //     [name]: value,
+  //   }));
+  // };
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [avatar, setAvatar] = useState("");
+
+  function handleEmailChange(e) {
+    setEmail(e.target.value);
+  }
+
+  function handlePasswordChange(e) {
+    setPassword(e.target.value);
+  }
+
+  function handleNameChange(e) {
+    setName(e.target.value);
+  }
+
+  function handleAvatarChange(e) {
+    setAvatar(e.target.value);
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleRegistration(data);
+    console.log({ email, password, name, avatar });
+    handleRegistration({ email, password, name, avatar });
   };
 
   return (
     <ModalWithForm
       title="Sign Up"
       buttonText="Sign Up"
-      onClose={closeActiveModal}
+      onClose={onClose}
       isOpen={isOpen}
       onSubmit={handleSubmit}
     >
@@ -38,8 +60,8 @@ const RegisterModal = ({ handleRegistration, closeActiveModal, isOpen }) => {
         className="modal__input"
         id="email"
         placeholder="Email"
-        value={data.email}
-        onChange={handleChange}
+        value={email}
+        onChange={handleEmailChange}
         required
       />
       <label htmlFor="password" className="modal__label">
@@ -50,8 +72,8 @@ const RegisterModal = ({ handleRegistration, closeActiveModal, isOpen }) => {
         className="modal__input"
         id="password"
         placeholder="Password"
-        value={data.password}
-        onChange={handleChange}
+        value={password}
+        onChange={handlePasswordChange}
         required
       />
       <label htmlFor="name" className="modal__label">
@@ -62,8 +84,8 @@ const RegisterModal = ({ handleRegistration, closeActiveModal, isOpen }) => {
         className="modal__input"
         id="name"
         placeholder="Name"
-        value={data.name}
-        onChange={handleChange}
+        value={name}
+        onChange={handleNameChange}
         required
       />
       <label htmlFor="avatarUrl" className="modal__label">
@@ -74,8 +96,8 @@ const RegisterModal = ({ handleRegistration, closeActiveModal, isOpen }) => {
         className="modal__input"
         id="avatarUrl"
         placeholder="Avatar URL"
-        value={data.avatarUrl}
-        onChange={handleChange}
+        value={avatar}
+        onChange={handleAvatarChange}
         required
       />
     </ModalWithForm>

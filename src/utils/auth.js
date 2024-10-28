@@ -10,7 +10,7 @@ export const register = (name, avatar, email, password) => {
   }).then(checkResponse);
 };
 
-export const login = (email, password) => {
+export const login = ({ email, password }) => {
   return fetch(`${baseUrl}/signin`, {
     method: "POST",
     headers: {
@@ -28,4 +28,15 @@ export const getUserInfo = (token) => {
       authorization: `Bearer ${token}`,
     },
   }).then(checkResponse);
+};
+
+export const editProfile = ({ name, avatar }, token) => {
+  return request(`${baseUrl}/users/me`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ name, avatar }),
+  });
 };

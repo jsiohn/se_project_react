@@ -1,30 +1,42 @@
 import { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const LoginModal = ({ handleLogin, closeActiveModal, isOpen }) => {
-  const [data, setData] = useState({
-    email: "",
-    password: "",
-  });
+const LoginModal = ({ handleLogin, onClose, isOpen }) => {
+  // const [data, setData] = useState({
+  //   email: "",
+  //   password: "",
+  // });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setData((prevData) => ({
+  //     ...prevData,
+  //     [name]: value,
+  //   }));
+  // };
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleLogin(data);
+    console.log("Logged In");
+    handleLogin({ email, password });
   };
 
   return (
     <ModalWithForm
       title="Log In"
       buttonText="Log In"
-      onClose={closeActiveModal}
+      onClose={onClose}
       isOpen={isOpen}
       onSubmit={handleSubmit}
     >
@@ -36,8 +48,8 @@ const LoginModal = ({ handleLogin, closeActiveModal, isOpen }) => {
         className="modal__input"
         id="email"
         placeholder="Email"
-        value={data.email}
-        onChange={handleChange}
+        value={email}
+        onChange={handleEmailChange}
         required
       />
       <label htmlFor="password" className="modal__label">
@@ -48,8 +60,8 @@ const LoginModal = ({ handleLogin, closeActiveModal, isOpen }) => {
         className="modal__input"
         id="password"
         placeholder="Password"
-        value={data.password}
-        onChange={handleChange}
+        value={password}
+        onChange={handlePasswordChange}
         required
       />
     </ModalWithForm>
