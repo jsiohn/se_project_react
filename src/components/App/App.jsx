@@ -92,13 +92,6 @@ function App() {
       .catch(console.error);
   };
 
-  // const onProfileSubmit = ({ name, avatar }) => {
-  //   editProfile({ name, avatar }).then((res) => {
-  //     setCurrentUser(res);
-  //     closeActiveModal();
-  //   });
-  // };
-
   const onCardLike = (id, isLiked) => {
     const jwt = localStorage.getItem("jwt");
     !isLiked

@@ -1,6 +1,5 @@
 import "./Header.css";
 import logo from "../../assets/wtwrLogo.svg";
-import avatar from "../../assets/profilePic.png";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
@@ -34,7 +33,6 @@ function Header({
       <div className="header__user-container">
         <ToggleSwitch />
         <button
-          // className="header__add-btn"
           className={`header__add-btn ${
             !isLoggedIn ? "header__add-btn_hidden" : ""
           }`}

@@ -2,21 +2,6 @@ import { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 const RegisterModal = ({ handleRegistration, onClose, isOpen }) => {
-  // const [data, setData] = useState({
-  //   email: "",
-  //   password: "",
-  //   name: "",
-  //   avatarUrl: "",
-  // });
-
-  // const handleChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setData((prevData) => ({
-  //     ...prevData,
-  //     [name]: value,
-  //   }));
-  // };
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
