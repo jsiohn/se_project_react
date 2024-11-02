@@ -10,10 +10,15 @@ import Profile from "../Profile/Profile";
 import { getWeather, filterWeatherData } from "../../utils/weatherAPI";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import AddItemModal from "../AddItemModal/AddItemModal";
-import { getItems, addItem, deleteItem } from "../../utils/api";
+import {
+  getItems,
+  addItem,
+  deleteItem,
+  addCardLike,
+  removeCardLike,
+} from "../../utils/api";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import * as auth from "../../utils/auth";
-import { setToken, getToken } from "../../utils/token";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
@@ -66,9 +71,11 @@ function App() {
   };
 
   const onAddItem = (values) => {
-    addItem(values)
+    const jwt = localStorage.getItem("jwt");
+    addItem(values, jwt)
       .then((newItem) => {
-        setClothingItems([newItem, ...clothingItems]);
+        console.log(values, newItem);
+        setClothingItems([newItem.data, ...clothingItems]);
         closeActiveModal();
       })
       .catch(console.error);
@@ -85,11 +92,30 @@ function App() {
       .catch(console.error);
   };
 
-  const onProfileSubmit = ({ name, avatar }) => {
-    editProfile({ name, avatar }).then((res) => {
-      setCurrentUser(res);
-      closeActiveModal();
-    });
+  // const onProfileSubmit = ({ name, avatar }) => {
+  //   editProfile({ name, avatar }).then((res) => {
+  //     setCurrentUser(res);
+  //     closeActiveModal();
+  //   });
+  // };
+
+  const onCardLike = (id, isLiked) => {
+    const jwt = localStorage.getItem("jwt");
+    !isLiked
+      ? addCardLike(id, jwt)
+          .then((updatedCard) => {
+            setClothingItems((cards) =>
+              cards.map((item) => (item._id === id ? updatedCard : item))
+            );
+          })
+          .catch((err) => console.log(err))
+      : removeCardLike(id, jwt)
+          .then((updatedCard) => {
+            setClothingItems((cards) =>
+              cards.map((item) => (item._id === id ? updatedCard : item))
+            );
+          })
+          .catch((err) => console.log(err));
   };
 
   const handleRegistration = ({ name, avatar, email, password }) => {
@@ -97,7 +123,7 @@ function App() {
       .register(name, avatar, email, password)
       .then(() => {
         closeActiveModal();
-        navigate("/");
+        navigate("/profile");
       })
       .catch((err) => console.error("Error setting data", err));
   };
@@ -113,15 +139,37 @@ function App() {
         console.log(res);
         if (res.token) {
           localStorage.setItem("jwt", res.token);
-          setToken(res.token);
           setIsLoggedIn(true);
-          setCurrentUser(res.user);
-          console.log(currentUser);
-          closeActiveModal();
-          navigate("/profile");
+          auth.getUserInfo(res.token).then((res) => {
+            setCurrentUser(res);
+            console.log(res);
+            closeActiveModal();
+            navigate("/profile");
+          });
         }
       })
       .catch((err) => console.error("Login Failed", err));
+  };
+
+  const handleProfileEdit = ({ name, avatar }) => {
+    const jwt = localStorage.getItem("jwt");
+    auth.editProfile({ name, avatar }, jwt).then((res) => {
+      console.log(res);
+      setIsLoggedIn(true);
+      setCurrentUser((prevUser) => ({
+        ...prevUser,
+        name,
+        avatar,
+      }));
+      closeActiveModal();
+      navigate("/profile");
+    });
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("jwt");
+    setIsLoggedIn(false);
+    setCurrentUser({});
   };
 
   useEffect(() => {
@@ -143,18 +191,18 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const jwt = getToken();
-    if (!jwt) {
-      return;
+    const jwt = localStorage.getItem("jwt");
+    if (jwt) {
+      auth
+        .getUserInfo(jwt)
+        .then((user) => {
+          console.log(user);
+          setIsLoggedIn(true);
+          setCurrentUser(user);
+          // navigate("/profile");
+        })
+        .catch(console.error);
     }
-    auth
-      .getUserInfo(jwt)
-      .then((res) => {
-        setIsLoggedIn(true);
-        setCurrentUser(res.data);
-        navigate("/profile");
-      })
-      .catch(console.error);
   }, []);
 
   return (
@@ -179,18 +227,23 @@ function App() {
                     weatherData={weatherData}
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
+                    isLoggedIn={isLoggedIn}
+                    onCardLike={onCardLike}
                   />
                 }
               />
               <Route
                 path="/profile"
                 element={
-                  <ProtectedRoute>
+                  <ProtectedRoute anonymous={isLoggedIn}>
                     <Profile
                       onCardClick={handleCardClick}
                       clothingItems={clothingItems}
                       handleAddClick={handleAddClick}
                       handleEditProfileClick={handleEditProfileClick}
+                      handleLogout={handleLogout}
+                      isLoggedIn={isLoggedIn}
+                      handleProfileEdit={handleProfileEdit}
                     />
                   </ProtectedRoute>
                 }
@@ -234,7 +287,7 @@ function App() {
             <EditProfileModal
               isOpen={activeModal === "edit"}
               onClose={closeActiveModal}
-              onProfileSubmit={onProfileSubmit}
+              handleProfileEdit={handleProfileEdit}
             />
           )}
         </CurrentTemperatureUnitContext.Provider>

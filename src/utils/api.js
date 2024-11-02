@@ -10,7 +10,7 @@ function getItems() {
   }).then(checkResponse);
 }
 
-function addItem({ name, imageUrl, weather, token }) {
+function addItem({ name, imageUrl, weather }, token) {
   return fetch(`${baseUrl}/items`, {
     method: "POST",
     headers: {
@@ -25,7 +25,8 @@ function addItem({ name, imageUrl, weather, token }) {
   }).then(checkResponse);
 }
 
-function deleteItem(id, token) {
+function deleteItem(id) {
+  const token = localStorage.getItem("jwt");
   return fetch(`${baseUrl}/items/${id}`, {
     method: "DELETE",
     headers: {
@@ -35,4 +36,31 @@ function deleteItem(id, token) {
   }).then(checkResponse);
 }
 
-export { getItems, addItem, deleteItem, checkResponse };
+function addCardLike(id, token) {
+  return fetch(`${baseUrl}/items/${id}/likes`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  }).then(checkResponse);
+}
+
+function removeCardLike(id, token) {
+  return fetch(`${baseUrl}/items/${id}/likes`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  }).then(checkResponse);
+}
+
+export {
+  getItems,
+  addItem,
+  deleteItem,
+  checkResponse,
+  addCardLike,
+  removeCardLike,
+};

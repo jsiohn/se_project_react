@@ -46,11 +46,17 @@ function Header({
         {isLoggedIn ? (
           <Link to="/profile" className="header__link">
             <p className="header__username">{currentUser?.name}</p>
-            <img
-              src={currentUser?.avatarUrl}
-              alt={currentUser?.name}
-              className="header__avatar"
-            />
+            {currentUser.avatar ? (
+              <img
+                src={currentUser?.avatar}
+                alt={currentUser?.name}
+                className="header__avatar"
+              />
+            ) : (
+              <div className="header__avatar-placeholder">
+                {currentUser.name.charAt(0).toUpperCase()}
+              </div>
+            )}
           </Link>
         ) : (
           <div className="header__auth">

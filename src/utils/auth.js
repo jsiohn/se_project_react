@@ -31,7 +31,7 @@ export const getUserInfo = (token) => {
 };
 
 export const editProfile = ({ name, avatar }, token) => {
-  return request(`${baseUrl}/users/me`, {
+  return fetch(`${baseUrl}/users/me`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",

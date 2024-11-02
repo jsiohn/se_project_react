@@ -1,7 +1,14 @@
-.sidebar {
+/* .sidebar {
   display: flex;
   gap: 16px;
   align-items: center;
+  margin-top: 63px;
+} */
+
+.sidebar__user-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
   margin-top: 63px;
 }
 
@@ -17,4 +24,34 @@
   font-size: 20px;
   line-height: 25px;
   width: 157px;
+}
+
+.sidebar__btn-container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.sidebar__edit-profile-btn {
+  font-family: "CabinetGrotesk-Bold";
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 25px;
+  border: none;
+  background: none;
+  padding: 0;
+  margin-top: 24px;
+  cursor: pointer;
+}
+
+.sidebar__logout-btn {
+  font-family: "CabinetGrotesk-Bold";
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 25px;
+  border: none;
+  background: none;
+  padding: 0;
+  margin-top: 8px;
+  cursor: pointer;
 }

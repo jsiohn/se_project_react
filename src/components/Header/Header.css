@@ -43,14 +43,17 @@
 }
 
 .header__user-container {
+  align-items: center;
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
 .header__link {
+  display: flex;
   text-decoration: none;
   color: #000;
+  align-items: center;
 }
 
 .header__register {
@@ -75,4 +78,10 @@
 
 .header__login:hover {
   cursor: pointer;
+}
+
+.header__avatar {
+  height: 40px;
+  width: 40px;
+  margin-left: 12px;
 }

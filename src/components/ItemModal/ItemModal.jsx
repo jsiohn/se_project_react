@@ -8,7 +8,7 @@ function ItemModal({ activeModal, card, onClose, onDeleteItem }) {
   const isOwn = card.owner === currentUser._id;
 
   const itemDeleteButtonClassName = `modal__delete-btn ${
-    isOwn ? "modal__delete-btn_visible" : "modal__delete-btn_hidden"
+    isOwn ? "modal__del-btn_visible" : "modal__del-btn_hidden"
   }`;
 
   return (

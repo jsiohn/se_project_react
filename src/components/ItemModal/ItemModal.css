@@ -34,7 +34,7 @@
   font-size: 20px;
 }
 
-.modal__del-btn {
+.modal__del-btn_visible {
   position: relative;
   font-size: 20px;
   font-weight: 700;
@@ -45,4 +45,8 @@
   cursor: pointer;
   grid-column: 2/3;
   grid-row: 1;
+}
+
+.modal__del-btn_hidden {
+  display: none;
 }
