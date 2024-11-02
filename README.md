@@ -5,6 +5,7 @@ This project is the first foray into React, using seperate components and combin
 ## Technologies Used
 
 - HTML, CSS, Javascript, and React
+- React Router, API, token authorization
 - Figma (for design and styling requirements)
 - BEM file structure and class-naming
 - GitHub Pages for deployment
@@ -12,6 +13,8 @@ This project is the first foray into React, using seperate components and combin
 ### Links
 
 Follow this link to see the project in action on GH Pages: [What to Wear?](https://jsiohn.github.io/se_project_react)
+
+[What to Wear? - Backend Public Repo](https://github.com/jsiohn/se_project_express)
 
 **Thanks to TripleTen!**
 
