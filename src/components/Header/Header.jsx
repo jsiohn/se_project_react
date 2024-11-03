@@ -4,6 +4,7 @@ import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
+import Avatar from "../Avatar/Avatar";
 
 function Header({
   handleAddClick,
@@ -44,7 +45,8 @@ function Header({
         {isLoggedIn ? (
           <Link to="/profile" className="header__link">
             <p className="header__username">{currentUser?.name}</p>
-            {currentUser?.avatar ? (
+            <Avatar />
+            {/* {currentUser?.avatar ? (
               <img
                 src={currentUser?.avatar}
                 alt={currentUser?.name}
@@ -54,7 +56,7 @@ function Header({
               <div className="header__avatar-placeholder">
                 {currentUser?.name ? currentUser?.name[0].toUpperCase() : ""}
               </div>
-            )}
+            )} */}
           </Link>
         ) : (
           <div className="header__auth">

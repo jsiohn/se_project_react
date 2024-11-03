@@ -1,4 +1,5 @@
 import "./SideBar.css";
+import Avatar from "../Avatar/Avatar";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import { useContext } from "react";
 
@@ -7,7 +8,8 @@ function SideBar({ handleLogout, handleEditProfileClick }) {
   return (
     <div className="sidebar">
       <div className="sidebar__user-container">
-        {currentUser?.avatar ? (
+        <Avatar />
+        {/* {currentUser?.avatar ? (
           <img
             className="sidebar__avatar"
             src={currentUser?.avatar}
@@ -17,7 +19,7 @@ function SideBar({ handleLogout, handleEditProfileClick }) {
           <div className="sidebar__avatar-placeholder">
             {currentUser?.name ? currentUser?.name[0].toUpperCase() : ""}
           </div>
-        )}
+        )} */}
         <p className="sidebar__username">{currentUser?.name}</p>
       </div>
       <div className="sidebar__btn-container">
