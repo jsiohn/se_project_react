@@ -1,14 +1,15 @@
 import "./SideBar.css";
 import Avatar from "../Avatar/Avatar";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 function SideBar({ handleLogout, handleEditProfileClick }) {
   const currentUser = useContext(CurrentUserContext);
+  const isSidebar = useState(true);
   return (
     <div className="sidebar">
       <div className="sidebar__user-container">
-        <Avatar />
+        <Avatar isSidebar={isSidebar} />
         {/* {currentUser?.avatar ? (
           <img
             className="sidebar__avatar"

@@ -20,3 +20,25 @@
   border-radius: 50%;
   color: #fff;
 }
+
+.avatar_sidebar {
+  width: 56px;
+  height: 56px;
+  margin: 0;
+}
+
+.avatar__placeholder_sidebar {
+  width: 56px;
+  height: 56px;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "CabinetGrotesk-Bold";
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 25px;
+  background-color: #000;
+  border-radius: 50%;
+  color: #fff;
+}
