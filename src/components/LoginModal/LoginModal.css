@@ -1,0 +1,16 @@
+.login__register-link {
+  padding: 0;
+  width: 73px;
+  height: 20px;
+  font-family: "CabinetGrotesk-Bold";
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  opacity: 50%;
+  border: none;
+  background: none;
+  cursor: pointer;
+  position: absolute;
+  right: 260px;
+  bottom: 44px;
+}

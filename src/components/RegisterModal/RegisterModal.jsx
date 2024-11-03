@@ -1,7 +1,13 @@
+import "./RegisterModal.css";
 import { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const RegisterModal = ({ handleRegistration, onClose, isOpen }) => {
+const RegisterModal = ({
+  handleRegistration,
+  onClose,
+  isOpen,
+  handleLoginClick,
+}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -83,8 +89,15 @@ const RegisterModal = ({ handleRegistration, onClose, isOpen }) => {
         placeholder="Avatar URL"
         value={avatar}
         onChange={handleAvatarChange}
-        required
       />
+      <button
+        type="button"
+        className="register__login-link"
+        to="login"
+        onClick={handleLoginClick}
+      >
+        or Log In
+      </button>
     </ModalWithForm>
   );
 };

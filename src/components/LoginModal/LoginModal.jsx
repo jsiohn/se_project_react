@@ -1,7 +1,8 @@
+import "./LoginModal.css";
 import { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const LoginModal = ({ handleLogin, onClose, isOpen }) => {
+const LoginModal = ({ handleLogin, onClose, isOpen, handleRegisterClick }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -51,6 +52,13 @@ const LoginModal = ({ handleLogin, onClose, isOpen }) => {
         onChange={handlePasswordChange}
         required
       />
+      <button
+        type="button"
+        className="login__register-link"
+        onClick={handleRegisterClick}
+      >
+        or Sign Up
+      </button>
     </ModalWithForm>
   );
 };

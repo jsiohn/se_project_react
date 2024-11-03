@@ -7,11 +7,17 @@ function SideBar({ handleLogout, handleEditProfileClick }) {
   return (
     <div className="sidebar">
       <div className="sidebar__user-container">
-        <img
-          className="sidebar__avatar"
-          src={currentUser?.avatar}
-          alt={currentUser?.name}
-        />
+        {currentUser?.avatar ? (
+          <img
+            className="sidebar__avatar"
+            src={currentUser?.avatar}
+            alt={currentUser?.name}
+          />
+        ) : (
+          <div className="sidebar__avatar-placeholder">
+            {currentUser?.name ? currentUser?.name[0].toUpperCase() : ""}
+          </div>
+        )}
         <p className="sidebar__username">{currentUser?.name}</p>
       </div>
       <div className="sidebar__btn-container">

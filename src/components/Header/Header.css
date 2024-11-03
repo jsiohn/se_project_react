@@ -85,3 +85,19 @@
   width: 40px;
   margin-left: 12px;
 }
+
+.header__avatar-placeholder {
+  height: 40px;
+  width: 40px;
+  margin-left: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "CabinetGrotesk-Bold";
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 25px;
+  background-color: #000;
+  border-radius: 50%;
+  color: #fff;
+}

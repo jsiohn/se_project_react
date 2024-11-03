@@ -115,8 +115,8 @@ function App() {
     auth
       .register(name, avatar, email, password)
       .then(() => {
+        handleLogin({ email, password });
         closeActiveModal();
-        navigate("/profile");
       })
       .catch((err) => console.error("Error setting data", err));
   };
@@ -265,7 +265,7 @@ function App() {
               isOpen={activeModal === "register"}
               onClose={closeActiveModal}
               handleRegistration={handleRegistration}
-              handleLoginClick={handleRegisterClick}
+              handleLoginClick={handleLoginClick}
             />
           )}
           {activeModal === "login" && (
@@ -273,7 +273,7 @@ function App() {
               isOpen={activeModal === "login"}
               onClose={closeActiveModal}
               handleLogin={handleLogin}
-              handleSignUpClick={handleLoginClick}
+              handleRegisterClick={handleRegisterClick}
             />
           )}
           {activeModal === "edit" && (
