@@ -237,6 +237,7 @@ function App() {
                       handleLogout={handleLogout}
                       isLoggedIn={isLoggedIn}
                       handleProfileEdit={handleProfileEdit}
+                      onCardLike={onCardLike}
                     />
                   </ProtectedRoute>
                 }

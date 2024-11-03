@@ -44,7 +44,7 @@ const RegisterModal = ({
       onSubmit={handleSubmit}
     >
       <label htmlFor="email" className="modal__label">
-        Email{" "}
+        Email*{" "}
       </label>
       <input
         type="email"
@@ -56,7 +56,7 @@ const RegisterModal = ({
         required
       />
       <label htmlFor="password" className="modal__label">
-        Password{" "}
+        Password*{" "}
       </label>
       <input
         type="password"
@@ -68,7 +68,7 @@ const RegisterModal = ({
         required
       />
       <label htmlFor="name" className="modal__label">
-        Name{" "}
+        Name*{" "}
       </label>
       <input
         type="text"
@@ -80,7 +80,7 @@ const RegisterModal = ({
         required
       />
       <label htmlFor="avatarUrl" className="modal__label">
-        Avatar URL{" "}
+        Avatar URL*{" "}
       </label>
       <input
         type="url"

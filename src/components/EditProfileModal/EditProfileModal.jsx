@@ -1,9 +1,10 @@
-import { useContext, useState } from "react";
+import "./EditProfileModal.css";
+import { useContext, useState, useEffect } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 
 const EditProfileModal = ({ isOpen, onClose, handleProfileEdit }) => {
-  // const currentUser = useContext(CurrentUserContext);
+  const currentUser = useContext(CurrentUserContext);
   const [name, setName] = useState("");
   const [avatar, setAvatar] = useState("");
 
@@ -20,6 +21,13 @@ const EditProfileModal = ({ isOpen, onClose, handleProfileEdit }) => {
     handleProfileEdit({ name, avatar });
   }
 
+  useEffect(() => {
+    if (currentUser) {
+      setName(currentUser.name || "");
+      setAvatar(currentUser.avatar || "");
+    }
+  }, [currentUser]);
+
   return (
     <ModalWithForm
       title="Change Profile Data"
@@ -29,7 +37,7 @@ const EditProfileModal = ({ isOpen, onClose, handleProfileEdit }) => {
       onSubmit={handleProfileSubmit}
     >
       <label htmlFor="name" className="modal__label">
-        Name{" "}
+        Name*{" "}
         <input
           required
           value={name}
@@ -41,7 +49,7 @@ const EditProfileModal = ({ isOpen, onClose, handleProfileEdit }) => {
         />
       </label>
       <label htmlFor="avatar" className="modal__label">
-        Avatar{" "}
+        Avatar*{" "}
         <input
           required
           value={avatar}
