@@ -146,17 +146,20 @@ function App() {
 
   const handleProfileEdit = ({ name, avatar }) => {
     const jwt = localStorage.getItem("jwt");
-    auth.editProfile({ name, avatar }, jwt).then((res) => {
-      console.log(res);
-      setIsLoggedIn(true);
-      setCurrentUser((prevUser) => ({
-        ...prevUser,
-        name,
-        avatar,
-      }));
-      closeActiveModal();
-      navigate("/profile");
-    });
+    auth
+      .editProfile({ name, avatar }, jwt)
+      .then((res) => {
+        console.log(res);
+        setIsLoggedIn(true);
+        setCurrentUser((prevUser) => ({
+          ...prevUser,
+          name,
+          avatar,
+        }));
+        closeActiveModal();
+        navigate("/profile");
+      })
+      .catch((err) => console.error("Cannot update profile", err));
   };
 
   const handleLogout = () => {

@@ -38,5 +38,5 @@ export const editProfile = ({ name, avatar }, token) => {
       Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({ name, avatar }),
-  });
+  }).then(checkResponse);
 };
