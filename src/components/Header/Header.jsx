@@ -19,7 +19,7 @@ function Header({
   });
 
   const currentUser = useContext(CurrentUserContext);
-  console.log(currentUser);
+  // console.log(currentUser);
 
   return (
     <header className="header">

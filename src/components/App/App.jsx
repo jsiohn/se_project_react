@@ -74,7 +74,7 @@ function App() {
     const jwt = localStorage.getItem("jwt");
     addItem(values, jwt)
       .then((newItem) => {
-        console.log(values, newItem);
+        // console.log(values, newItem);
         setClothingItems([newItem.data, ...clothingItems]);
         closeActiveModal();
       })
@@ -129,13 +129,13 @@ function App() {
     auth
       .login({ email, password })
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         if (res.token) {
           localStorage.setItem("jwt", res.token);
           setIsLoggedIn(true);
           auth.getUserInfo(res.token).then((res) => {
             setCurrentUser(res);
-            console.log(res);
+            // console.log(res);
             closeActiveModal();
             navigate("/profile");
           });
@@ -149,7 +149,7 @@ function App() {
     auth
       .editProfile({ name, avatar }, jwt)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         setIsLoggedIn(true);
         setCurrentUser((prevUser) => ({
           ...prevUser,
@@ -192,7 +192,7 @@ function App() {
       auth
         .getUserInfo(jwt)
         .then((user) => {
-          console.log(user);
+          // console.log(user);
           setIsLoggedIn(true);
           setCurrentUser(user);
           // navigate("/profile");
