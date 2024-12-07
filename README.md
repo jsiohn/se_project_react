@@ -12,7 +12,7 @@ This project is the first foray into React, using seperate components and combin
 
 ### Links
 
-Follow this link to see the project in action: [What to Wear"](wtwr.nullexistence.net)
+Follow this link to see the project in action: [What to Wear?](wtwr.nullexistence.net)
 
 [What to Wear? - Backend Public Repo](https://github.com/jsiohn/se_project_express)
 
